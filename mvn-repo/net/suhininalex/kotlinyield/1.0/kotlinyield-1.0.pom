@@ -72,6 +72,19 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.offbynull.coroutines</groupId>
+                <artifactId>maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>instrument</goal>
+                            <goal>test-instrument</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
