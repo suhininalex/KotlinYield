@@ -32,5 +32,3 @@ fun <T> Continuation<T>.yeild(result: Iterator<T>){
     context = result
     suspend()
 }
-
-fun <T> iterator(vararg objects: T) = objects.iterator()
