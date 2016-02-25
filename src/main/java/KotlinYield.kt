@@ -6,15 +6,14 @@ fun <T> yieldable(body: Continuation<T>.()->Unit) = object : Iterable<T> {
 
     var currentIterator = iterator<T>()
 
-    override fun iterator() = iterate {
-        if (currentIterator.hasNext())
-            return@iterate currentIterator.next()
+    override fun iterator() = iterateBy<T> {
+        if (currentIterator.hasNext()) currentIterator.next()
         else {
             while (runner.execute()) {
                 currentIterator = (runner.context as Iterator<T>)
-                if (currentIterator.hasNext()) return@iterate currentIterator.next()
+                if (currentIterator.hasNext()) return@iterateBy currentIterator.next()
             }
-            return@iterate null
+            stop()
         }
     }
 }
