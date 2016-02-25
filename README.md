@@ -1,5 +1,5 @@
 # KotlinYield
-Introduce lazy yield in kotlin. Did'not use threads.
+Introduce lazy yield in kotlin. The library uses instrumentation instead of thread context.
 
 ### Simple way to use library with maven:
 
